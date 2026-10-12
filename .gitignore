@@ -1,0 +1,40 @@
+# Python virtual environments, bytecode, and test cache
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# Node dependencies and generated frontend build
+dashboard/node_modules/
+dashboard/dist/
+
+# Java build output
+server/target/
+
+# Local logs and runtime databases
+*.log
+*.sqlite
+*.sqlite3
+*.db
+
+# Local secrets and machine-specific client configuration
+.env
+.env.*
+!.env.example
+client/config.yaml
+*.pem
+*.key
+*.p12
+*.pfx
+
+# IDE and operating system files
+.idea/
+.DS_Store
+Thumbs.db
+
+# Generated modernization workflow state
+.github/modernize/java-upgrade/
+server/.github/modernize/java-upgrade/
+
+docs/

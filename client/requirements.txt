@@ -1,0 +1,7 @@
+psutil>=5.9.8
+watchdog>=4.0.0
+pywin32>=306
+cryptography>=41.0.7
+requests>=2.31.0
+pyyaml>=6.0.1
+pytest>=8.0.0

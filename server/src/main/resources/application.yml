@@ -1,0 +1,28 @@
+spring:
+  application:
+    name: secure-session-manager-server
+  profiles:
+    active: dev
+
+server:
+  port: 8443
+
+session-manager:
+  crypto:
+    aes-key: ${AES_KEY:AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=}
+    hmac-key: ${HMAC_KEY:c2VjdXJlLXNlc3Npb24tbWFuYWdlci1obWFjLXNlY3JldC0yNTY=}
+  retention:
+    days: 30
+  api:
+    client-api-key: ${CLIENT_API_KEY:secure-client-api-key-2026-public-lab}
+  security:
+    jwt-secret: ${JWT_SECRET:dGhpc2lzYXZlcnlzZWN1cmUyNTZiaXRqd3RzZWNyZXRrZXlmb3JzZXNzaW9ubWFuYWdlcjIwMjY=}
+    jwt-expiration-ms: 86400000
+  admin:
+    username: ${ADMIN_USERNAME:admin}
+    password: ${ADMIN_PASSWORD:admin}
+
+logging:
+  level:
+    com.sessionmanager: DEBUG
+    org.springframework.security: INFO
