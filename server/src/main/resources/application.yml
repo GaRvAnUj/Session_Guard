@@ -16,7 +16,7 @@ session-manager:
   api:
     client-api-key: ${CLIENT_API_KEY:secure-client-api-key-2026-public-lab}
   security:
-    jwt-secret: ${JWT_SECRET:dGhpc2lzYXZlcnlzZWN1cmUyNTZiaXRqd3RzZWNyZXRrZXlmb3JzZXNzaW9ubWFuYWdlcjIwMjY=}
+    jwt-secret: ${JWT_SECRET}
     jwt-expiration-ms: 86400000
   admin:
     username: ${ADMIN_USERNAME:admin}

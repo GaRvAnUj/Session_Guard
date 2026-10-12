@@ -22,6 +22,13 @@ The administrator dashboard requires sign-in. The controlled-demo credentials ar
   - Production-ready PostgreSQL (`application-prod.yml`).
 
 ## Building & Running
+
+Set a unique signing secret of at least 32 bytes in the environment before starting the Spring Boot application. Do not commit the secret:
+
+```powershell
+$env:JWT_SECRET = "<unique-random-secret-at-least-32-bytes>"
+```
+
 ```bash
 # Build with Maven
 mvn clean package

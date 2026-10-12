@@ -17,15 +17,12 @@ public class JwtTokenProvider {
     private final long expirationMs;
 
     public JwtTokenProvider(
-            @Value("${session-manager.security.jwt-secret:dGhpc2lzYXZlcnlzZWN1cmUyNTZiaXRqd3RzZWNyZXRrZXlmb3JzZXNzaW9ubWFuYWdlcjIwMjY=}") String secret,
+            @Value("${session-manager.security.jwt-secret}") String secret,
             @Value("${session-manager.security.jwt-expiration-ms:86400000}") long expirationMs) {
-        byte[] keyBytes = secret.getBytes(StandardCharsets.UTF_8);
-        if (keyBytes.length < 32) {
-            byte[] padded = new byte[32];
-            System.arraycopy(keyBytes, 0, padded, 0, keyBytes.length);
-            keyBytes = padded;
+        if (secret == null || secret.isBlank()) {
+            throw new IllegalArgumentException("JWT signing secret must be configured.");
         }
-        this.key = Keys.hmacShaKeyFor(keyBytes);
+        this.key = Keys.hmacShaKeyFor(secret.getBytes(StandardCharsets.UTF_8));
         this.expirationMs = expirationMs;
     }
 
